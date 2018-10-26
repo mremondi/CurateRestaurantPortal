@@ -1,0 +1,19 @@
+.Navbar {
+  width: auto;
+  height: 8vh;
+  background-color: #ffffff;
+}
+
+.Navbar-logo {
+  width: 40px;
+}
+
+.Navbar h1{
+  margin:0;
+  color: #ed2026;
+  height: 90%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
