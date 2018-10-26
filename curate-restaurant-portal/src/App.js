@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar/Navbar.js';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
 class App extends Component {
 
@@ -13,13 +15,16 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        this.setState({restaurants: [json]});
-      })
-    };
+    this.props.client.query({
+      query: gql`
+      {
+        items(name: "bacon", userDistance:{latitude:42.444862, longitude:-71.147893}){
+          id
+          name
+        }
+      }
+    `}).then(response => console.log(response.data))
+  };
 
   render() {
     const restaurants = this.state.restaurants;
