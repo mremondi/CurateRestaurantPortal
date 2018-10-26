@@ -6,8 +6,18 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <img src={navbar_icon} className="Navbar-logo" alt="logo" />
-        <h1>Curate</h1>
+        <a href="/" target="_blank" rel="noopener noreferrer">
+          <span className="imageHelper"></span><img src={navbar_icon} className="Navbar-logo" alt="logo" />
+          <p>Curate</p>
+        </a>
+        <ul>
+          <button className="signUp" onClick={function() { alert('click'); }}>
+            <li> Sign Up</li>
+          </button>
+          <button className="login" onClick={function() { alert('click'); }}>
+            <li> Log In</li>
+          </button>
+        </ul>
       </div>
     );
   }
