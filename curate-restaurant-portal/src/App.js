@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar/Navbar.js';
-import RestaurantHomePage from "./RestaurantHomePage/RestaurantHomePage.js"
 //Import Apollo
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -34,10 +33,10 @@ class App extends Component {
   render() {
     const restaurants = this.state.restaurants;
     console.log(restaurants);
-    const user = {name: "Mike Remondi"};
+
     return (
       <div>
-      <Navbar user={user}/>
+      <Navbar user={ "Mike Remondi" }/>
         <div className="App">
           <div>
             {restaurants.map(restaurant =>

@@ -8,7 +8,7 @@ class Navbar extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        user: null,
+        user: props.name,
         loggedIn: false
       };
     }
@@ -16,7 +16,6 @@ class Navbar extends Component {
   
   handleRestaurantLogin = () => {
     this.setState(loginRestaurant);
-    console.log("Logged in?" + this.state.loggedIn);
   }
 
   handleRestaurantLogout = () => {
@@ -24,10 +23,10 @@ class Navbar extends Component {
   }
 
   render() {
+  
     return (
       <Router>
         <div className="Navbar">
-          <div className="container">
             {!this.state.loggedIn && 
               <button className="login" onClick={this.handleRestaurantLogin}>
                 <Link to="/myrestaurants">Login to my restaurant</Link>
@@ -35,15 +34,10 @@ class Navbar extends Component {
             }
 
             { this.state.loggedIn &&
-              <div> 
-                <button className="login" 
-                        onClick={this.handleRestaurantLogout}>
-                        <Link to="/">Logout</Link>
+                <button className="login" onClick={this.handleRestaurantLogout}>
+                  <Link to="/">{this.state.user}: Log Out</Link>
                 </button>
-              </div>
             }
-
-          </div>
 
           <Route path="/myrestaurants" exact={true} component={RestaurantHomePage} />
           <Route path="/" exact={true} component={Main} />
@@ -55,15 +49,16 @@ class Navbar extends Component {
 }
 
 const loginRestaurant = (state, props) => {
-  console.log("loginRestaurant function...");
   return {
-    loggedIn: true
+    loggedIn: true,
+    user: "Mike Remondi"
   }
 }
 
 const logoutRestaurant = (state) => {
   return {
-    loggedIn: false
+    loggedIn: false,
+    user: ""
   }
 }
 

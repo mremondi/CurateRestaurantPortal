@@ -22,7 +22,7 @@
 }
 
 
-.login{
+.login {
   height: 100%;
   width: auto;
   background: #ffffff;
@@ -30,6 +30,7 @@
   border: 0;
   padding-left: 40px;
   padding-right: 40px;
+  font-size: 20px;
 }
 
 .signUp, .account{
