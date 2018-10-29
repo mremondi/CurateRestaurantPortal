@@ -62,7 +62,7 @@
   font-size: calc(20px + 2vmin);
 }
 
-.Navbar ul{
+.Navbar div ul{
   margin: 0;
   height: 100%;
   display: inline-block;

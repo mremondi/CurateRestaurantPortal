@@ -1,0 +1,41 @@
+.RestaurantForm {
+    position: relative;
+    top: 500;
+    left: 200;
+    margin: auto;
+    width: 500px;
+    display: block;
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30vh;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 8px #888888;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .input {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #cfcfcf;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    outline: none;
+    float: right;
+    clear: both;
+  }
+
+  input:invalid {
+    border-color: red;
+  }
+
+  .displayErrors input:invalid {
+    border-color: red;
+  }
+
+  .form-success-block {
+    display: inline-block;
+  }

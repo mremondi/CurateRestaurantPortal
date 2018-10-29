@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar/Navbar.js';
+import RestaurantHomePage from "./RestaurantHomePage/RestaurantHomePage.js"
+//Import Apollo
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+//Import React Router
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      restaurants: []
+      restaurants: [],
+      loggedIn: false,
     };
   }
 
@@ -26,37 +31,80 @@ class App extends Component {
     `}).then(response => console.log(response.data))
   };
 
+  handleRestaurantLogin = () => {
+    this.setState(loginRestaurant);
+    console.log("Logged in?" + this.state.loggedIn);
+  }
+
+  handleRestaurantLogout = () => {
+    this.setState(logoutRestaurant);
+  }
+
   render() {
     const restaurants = this.state.restaurants;
     console.log(restaurants);
     const user = {name: "Mike Remondi"};
     return (
-      <div>
+      <Router>
+        <div>
         <Navbar user={user}/>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
+          <div className="App">
             <div>
               {restaurants.map(restaurant =>
                 <p key={restaurant.userId}>{restaurant.userId}</p>
               )}
+
+              <div className="container">
+                {!this.state.loggedIn && 
+                  <button className="login-button" onClick={this.handleRestaurantLogin}>
+                    <Link to="/myrestaurants">Login to my restaurant</Link>
+                  </button>
+                }
+
+                { this.state.loggedIn &&
+                  <div> 
+                    <h2 className="temp-loggedIn"> You are now logged in </h2>
+                    <button className="logout-button" 
+                            onClick={this.handleRestaurantLogout}>
+                            <Link to="/">Logout</Link>
+                    </button>
+                  </div>
+                }
+
+              </div>
             </div>
-          </header>
+
+          <Route path="/myrestaurants" exact={true} component={RestaurantHomePage} />
+          <Route path="/" exact={true} component={Main} />
+                
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
+}
+
+//Declare state change logic outside component.
+//See functionalSetState: https://medium.freecodecamp.org/functional-setstate-is-the-future-of-react-374f30401b6b
+const loginRestaurant = (state, props) => {
+  console.log("loginRestaurant function...");
+  return {
+    loggedIn: true
+  }
+}
+
+const logoutRestaurant = (state) => {
+  return {
+    loggedIn: false
+  }
+}
+
+const Main = () => {
+  return (
+    <div className="landing-page">
+      <h1>Landing Page</h1>
+    </div>
+  );
 }
 
 export default App;
