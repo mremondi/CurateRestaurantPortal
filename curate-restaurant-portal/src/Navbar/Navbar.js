@@ -27,6 +27,7 @@ class Navbar extends Component {
     return (
       <Router>
         <div className="Navbar">
+            <img src={navbar_icon}/>
             {!this.state.loggedIn && 
               <button className="login" onClick={this.handleRestaurantLogin}>
                 <Link to="/myrestaurants">Login to my restaurant</Link>

@@ -1,7 +1,6 @@
 .RestaurantHomePage {
     position: relative;
-    top: 80%;
-    left: 30%;
+    left: 25%;
 }
 
 .RestaurantHomePage li {
@@ -11,5 +10,17 @@
     margin-top: 10px;
     padding: 2px;
     width: 50%;
+}
+
+.createRestaurant {
+    left: 50%;
+    position: relative;
+    display: block;
+    background: lightgray;
+    color: #ed2026;
+    border: 2px;
+    font-size: 20px;
+    margin-right: 10%;
+    font-size: 2em;
 }
 
