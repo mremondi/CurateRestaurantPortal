@@ -40,8 +40,8 @@ class Navbar extends Component {
                 </button>
             }
 
-          <Route path="/myrestaurants" exact={true} component={RestaurantHomePage} />
-          <Route path="/" exact={true} component={Main} />
+          <Route path="/myrestaurants" component={RestaurantHomePage} />
+          <Route exact={true} path="/" component={Main} />
 
         </div>
       </Router>

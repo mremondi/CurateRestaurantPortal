@@ -6,14 +6,15 @@ import CreateMenu from '../CreateMenu/CreateMenu.js'
 
 class CreateRestaurant extends Component {
     render() {
-
         const { match } = this.props;
+        console.log('CreateRestaurant: ' + match.path);
+
         return (
             <Router>
                 <div className="CreateRestaurant">                    
                     <Switch>
-                        <Route exact={true} path={`${match.path}/create-menu`} component={CreateMenu} />
                         <Route exact={true} path={`${match.path}`} component={CreateRestaurantView} />
+                        <Route path={`${match.path}/create-menu`} component={CreateMenu} />
                     </Switch>
                 </div>
             </Router>

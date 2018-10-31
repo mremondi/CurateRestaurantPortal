@@ -8,14 +8,15 @@ class RestaurantHomePage extends Component {
 
     render() {
         const { match } = this.props;
-        return (
+        console.log("RestaurantHomePage path: " + match.path);
 
+        return (
             <Router>
                 <div className="RestaurantHomePage">
                     <Switch>
-                        <Route exact={true} path={`${match.path}/create-restaurant`}
-                         component = {CreateRestaurant} />
                         <Route exact={true} path={`${match.path}`} component={RestaurantsView} />
+                        <Route path={`${match.path}/create-restaurant`}
+                         component = {CreateRestaurant} />
                     </Switch>
                 </div>
             </Router>
@@ -33,9 +34,9 @@ class RestaurantsView extends Component {
                 </button>
 
                 <h1> This is the restaurant home page </h1>
-                <li> Item 1 </li>
-                <li> Item 2 </li>
-                <li> Item 3 </li>
+                <li> Restaurant 1 </li>
+                <li> Restaurant 2 </li>
+                <li> Restaurant 3 </li>
             </div>
         );
     }
