@@ -5,7 +5,6 @@ import './RestaurantHomePage.css'
 import CreateRestaurant from '../CreateRestaurant/CreateRestaurant.js';
 
 class RestaurantHomePage extends Component {
-
     render() {
         const { match } = this.props;
         console.log("RestaurantHomePage path: " + match.path);
@@ -25,8 +24,17 @@ class RestaurantHomePage extends Component {
 }
 
 class RestaurantsView extends Component {
+    state = {
+        restaurants: [
+            {name: 'Ristorante One', description: "A standard restaurant"},
+            {name: 'Loco Taqueria', description: "Decent tacos"},
+            {name: 'Bell in Hand Tavern', description: "Expensive beers"}
+        ]
+    }
+
     render() {
         const { match } = this.props;
+
         return (
             <div>
                 <button className="createRestaurant">
@@ -34,9 +42,11 @@ class RestaurantsView extends Component {
                 </button>
 
                 <h1> This is the restaurant home page </h1>
-                <li> Restaurant 1 </li>
-                <li> Restaurant 2 </li>
-                <li> Restaurant 3 </li>
+
+                {this.state.restaurants.map(restaurant => {
+                    return (<li>{restaurant.name}: {restaurant.description}</li>)
+                })}
+
             </div>
         );
     }

@@ -28,12 +28,30 @@ class CreateRestaurantView extends Component {
         return (
             <div>
                 <h1>This is the create restaurant page</h1>
-                <button>
-                        <Link to={`${match.url}/create-menu`}>Create Menu</Link>
-                </button>
+
+                <RestaurantFields />
+                <Link to={`${match.url}/create-menu`}>
+                    <button>
+                        Create Restaurant
+                    </button>
+                </Link>
+
+               
             </div>
         );
     }
+}
+
+const RestaurantFields = () => {
+    return(
+        <form>
+            <input type="text" placeholder="Name" /> <br/>
+            <input type="text" placeholder="Address" /> <br/>
+            <input type="text" placeholder="Website URL" /> <br/>
+            <input type="text" placeholder="Logo URL" /> <br/>
+            <input type="text" placeholder="Zipcode" /> <br/>
+        </form>
+    );
 }
 
 export default CreateRestaurant;

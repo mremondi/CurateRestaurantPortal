@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import navbar_icon from './navbar_icon.png';
 import './Navbar.css';
+import LinkButton from '../components/LinkButton'
 import RestaurantHomePage from "../RestaurantHomePage/RestaurantHomePage.js"
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
